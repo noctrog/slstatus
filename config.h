@@ -9,6 +9,14 @@ static const char unknown_str[] = "n/a";
 /* maximum output string length */
 #define MAXLEN 2048
 
+/* helper macros for colors */
+#define STR_(X) #X
+#define STR(X) STR_(X)
+
+/* colors */
+#define BLUE 458588
+
+
 /*
  * function            description                     argument (example)
  *
@@ -65,8 +73,10 @@ static const struct arg args[] = {
 	/* function format		argument */
 	//{battery_perc, " | %s%% bat",		"BAT0"},
 	//{battery_remaining, "%s",		"BAT0"},
-	{ipv4,      " | %s",			"enp4s0"},
-	{ cpu_perc, " | %s%% ",		NULL },
-	{ ram_perc, " | %s%% ",		NULL },
-	{ datetime, " | %s",		" %T" },
+    { netspeed_rx, "^b#689d6a^^c#282828^ rx: %sB/s ", "enp8s0" },
+    { netspeed_tx, "^b#689d6a^^c#282828^ tx: %sB/s ", "enp8s0" },
+	{ ipv4,     "^b#689d6a^^c#282828^ %s ",			"enp8s0"},
+	{ cpu_perc, "^b#" STR(BLUE) "^^c#282828^ %s%%  ",		NULL },
+	{ ram_perc, "^b#98971a^^c#282828^ %s%%  ",		NULL },
+	{ datetime, "^b#d79921^^c#282828^ %s ",  "%H:%M" },
 };
