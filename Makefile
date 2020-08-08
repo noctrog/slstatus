@@ -34,7 +34,8 @@ $(COM:=.o): config.mk $(REQ:=.h)
 slstatus.o: slstatus.c slstatus.h arg.h config.h config.mk $(REQ:=.h)
 
 .c.o:
-	$(CC) -o $@ -c $(CPPFLAGS) $(CFLAGS) $<
+	#$(CC) -o $@ -c $(CPPFLAGS) $(CFLAGS) $<
+	$(CC) -D N_CPUS=$(shell nproc) -o $@ -c $(CPPFLAGS) $(CFLAGS) $<
 
 config.h:
 	cp config.def.h $@

@@ -16,7 +16,6 @@ static const char unknown_str[] = "n/a";
 /* colors */
 #define BLUE 458588
 
-
 /*
  * function            description                     argument (example)
  *
@@ -71,12 +70,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format		argument */
-	//{battery_perc, " | %s%% bat",		"BAT0"},
+    {battery_perc, "^b#689d6a^^c#282828^ %s%% bat ",		"BAT0"},
 	//{battery_remaining, "%s",		"BAT0"},
-    { netspeed_rx, "^b#689d6a^^c#282828^ rx: %sB/s ", "enp8s0" },
-    { netspeed_tx, "^b#689d6a^^c#282828^ tx: %sB/s ", "enp8s0" },
-	{ ipv4,     "^b#689d6a^^c#282828^ %s ",			"enp8s0"},
-	{ cpu_perc, "^b#" STR(BLUE) "^^c#282828^ %s%%  ",		NULL },
+	{ cpu_perc, "^b#" STR(BLUE) "^ %s^c#282828^  ",		NULL },
 	{ ram_perc, "^b#98971a^^c#282828^ %s%%  ",		NULL },
 	{ datetime, "^b#d79921^^c#282828^ %s ",  "%H:%M" },
 };
