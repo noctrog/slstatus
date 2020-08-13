@@ -107,6 +107,7 @@
         }
 
         free(line);
+        fclose(fp);
 
         if (b[0][0] == 0) return NULL;
 
@@ -125,7 +126,7 @@
         const int bar_top = 2;
         const int bar_bottom = 18;
 
-        char buf[256];
+        char buf[512];
         ssize_t idx = 0;
         /*Draw background*/
         idx += snprintf(&buf[idx], strlen(background) + 15 + 1, "%s^r%02d,%02d,%02d,%02d^", 
